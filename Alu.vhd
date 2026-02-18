@@ -86,7 +86,14 @@ begin
 
     
 -- Complete the following statements to generate condition flags.
-  OVF <= C_l xor Sum(n-1) xor A(n-1) xor B_l(n-1);
+  OVF <= 
+    ((not Sub) and
+        ((A(n-1) and B(n-1) and not Sum(n-1)) or
+         (not A(n-1) and not B(n-1) and Sum(n-1))))
+    or
+    (Sub and
+        ((A(n-1) and not B(n-1) and not Sum(n-1)) or
+         (not A(n-1) and B(n-1) and Sum(n-1))));
   CF <= C_l;
   NF <= Sum(n-1);
   ZF <= '1' when Sum = Zero else '0';
@@ -108,3 +115,4 @@ begin
 	          Y   => RSLT);           -- This is the final result from the ALU
 
 end RTL;
+
