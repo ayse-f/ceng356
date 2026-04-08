@@ -2,7 +2,7 @@
  ============================================================================
  Name        : main.c
  Author      : Austin Tian
- Revised by  :
+ Revised by  : ayse
  Version     :
  Copyright   : Copyright 2023
  Description : main code in C
